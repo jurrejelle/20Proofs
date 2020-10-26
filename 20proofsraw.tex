@@ -1,0 +1,437 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\title{20 proofs in 1 sitting}
+\author{J.J.K Groenendijk}
+\date{26/10/2020}
+\begin{document}
+
+\section{Proof 1}
+for $n \in N: 1+2+4+...+2^n = 2^{(n+1)}-1$\\
+$$\sum_{i=0}^{n}2^i = 2^{(n+1)}-1$$\\
+
+We're gonna use proof by induction.\\
+Base case: Take n=0 $$ \sum_{i=0}^{0}2^i = 2^1-1$$\\
+$ 2^0 = 2-1$\\
+$1 = 1$, which holds.\\
+
+Inductive hypothesis: For any arbitrary integer k $$\sum_{i=0}^{k}2^i = 2^{(k+1)}-1$$ 
+
+Inductive step: For any arbitrary integer $n > 0$: $$\sum_{i=0}^{n}2^i = 2^{(n+1)}-1 \rightarrow \sum_{i=0}^{n+1}2^i = 2^{(n+1+1)}-1 $$
+
+$$\sum_{i=0}^{n+1}2^i = 2^{(n+1+1)}-1$$
+$$2^{n+1} + \sum_{i=0}^{n}2^i = 2^{(n+2)}-1$$
+By I.H.
+$$2^{n+1} + 2^{n+1}-1 = 2^{n+2}-1$$
+$$2 * 2^{n+1} -1 = 2^{n+2}-1$$
+$$2^{n+1+1} -1 = 2^{n+2}-1$$
+$$2^{n+2} -1 = 2^{n+2}-1$$ 
+Which holds, so our proof by induction is complete because we took any arbitrary $n > 0$.\\
+$\Box$
+
+
+
+\section{Proof 2}
+For all positive integers $x, y:$  $ (x\mid y) \rightarrow (x \mid y^x)$.\\
+To prove:$ (x\mid y) \rightarrow (x \mid y^x)$\\
+$ (x*n= y) \rightarrow (x*m = y^x)$ for integer n,m\\
+Take an arbitrary integer x and y\\
+$x*m = y^x$\\
+$x*m = (x*n)^x$\\
+$x*m = x*n(x*n)^{x-1}$\\
+Say n' = $n(x*n)^{x-1}$, which is integer, because n and x are also integers\\
+$x*m = x*n'$ which holds because m and n' are some integer
+And therefore for all positive integers $x, y:$  $ (x\mid y) \rightarrow (x \mid y^x)$.\\
+$\Box$
+
+\section{Proof 3}
+
+
+Assuming you have two positive numbers a, b and the equation $a^2 + 2a = 4b^2 + 4b$ holds, prove that $a = 2b$.\\
+We want to prove this using a proof by contradiction, so lets introduce the claim that $a \neq 2b$
+
+Take arbitrary positive numbers a,b\\
+$a \neq 2b$ and $a^2+2a=4b^2+4b$\\
+$a^2+2a-4b^2-4b=0$\\
+$a^2+2a+(-4b^2-4b)=0$\\
+Quadratic formula with $a=1, b=2, c=(-4b^2-4b)$\\
+$$a=\frac{-b\pm \sqrt{b^2-4ac}}{2a}$$
+$$a=\frac{-2\pm \sqrt{4- 4*(-4b^2-4b)}}{2}$$
+$$a=\frac{-2\pm \sqrt{16b^2+16b+4}}{2}$$
+$$a=\frac{-2\pm \sqrt{(4b+2)^2}}{2}$$
+$$a=\frac{-2\pm 2(2b+1)}{2}$$
+$$a=-1\pm (2b+1)$$
+$$a_1=-1+ (2b+1), a_2=-1-(2b+1)$$
+$$a_1=2b, a_2=-2-2b$$
+$a_1$ poses a contradiction because we said $a\neq 2b$, and $a_2$ is not in the scope of the question because a and b are positive integers.
+
+Therefore, by proof by contradiction, we have proven that $a^2 + 2a = 4b^2 + 4b \rightarrow a = 2b$.
+
+$\Box$
+
+
+\section{Proof 4}
+For integers a,b, there are no integers s.t. $a^2-9b=3$\\
+$\neg\exists a,b s.t. a^2-9b=3$\\
+This is equal to
+$\forall a,b:  a^2-9b \neq 3$\\
+We will do a proof by contradiction, namely by stating that for all integers a,b  $a^2-9b = 3$ holds.
+ 
+$a^2-9b = 3$\\
+$a^2 = 3+9b$\\
+$\sqrt{a^2} = \sqrt{3+9b}$\\
+$a = \sqrt{3+9b}$\\
+$a = \sqrt{3(1+3b)}$\\
+$a = \sqrt{3}\sqrt{1+3b}$\\
+Since the only way the right side is an integer is when $\sqrt{1+3b}$ becomes a multiple of $\sqrt{3}$, but 1+3b will never be a multiple of 3, and therefore this is a contradiction.
+Therefore, by proof of contradiction, we have proven that $\neg\exists a,b\in Z s.t. a^2-9b=3$\\ 
+$\Box$
+
+\section{Proof 5}
+If $x^2-8x+11$ is even then x is odd\\
+We're gonna take a proof by contrapositive, so therefore we can also say if x is even then $x^2-8x+11$ is odd.\\
+\\
+By our claim, x is even, so $x=2*n$ for some integer n\\
+we will fill that in into $x^2-8x+11$, which gives\\
+$(2*n)^2-8(2*n)+11$\\
+$(2*n)(2*n)-16*n+10+1$\\
+$2*(n*2*n)-2*8*n+2*5+1$\\
+$2*((n*2*n)-8*n+5)+1$\\
+Say n' = $(n*2*n)-8*n+5)$, and because n is an integer, n' will also be an integer.
+$2*n'+1$\\
+This is odd, which is what we wanted to prove with our contradiction, and therefore we have proven that if $x^2-8x+11$ is even then x is odd.\\
+$\Box$
+
+\section{Proof 6}
+
+For any $n \in N \land n \geq 1$, $1+3+5+7+...+2n-1 = n^2$\\
+This can be rewritten as: $$\sum_{i=1}^{n}(2i-1) = n^2$$
+We want to use a proof by induction.\\
+Base case: n=1, gives $1=1^2$, which holds.\\
+Induction hypothesis: $$\sum_{i=1}^{n}(2i-1) = n^2$$
+$$\sum_{i=1}^{n}(2i-1) = n^2$$
+Inductive step: Prove that $$\sum_{i=1}^{n+1}(2i-1) = (n+1)^2$$
+
+$$2(n+1)-1 + \sum_{i=1}^{n}(2i-1) = (n+1)^2$$
+By I.H.
+$$2(n+1)-1 + n^2 = n^2+2n+1$$
+$$2n+2-1 + n^2 = n^2+2n+1$$
+$$n^2+2n+1  = n^2+2n+1$$
+Which holds, and therefore our Proof By Induction is done, and we have proven that for any $n \in N \land n \geq 1$, $1+3+5+7+...+2n-1 = n^2$\\
+$\Box$
+
+\section{Proof 7}
+Proof that $A \cup (A \cap B)$ = A for any sets A,B\\
+$A \cup (x \in A \land x \in B)$\\
+$x \in A \lor (x \in A \land x \in B)$\\
+$(x \in A \lor x \in A) \land (x \in A \lor x \in B)$\\
+$x \in A \land (x \in A \lor x \in B)$\\
+By absorption law:
+$x \in A \land (x \in A \lor x \in B) = A$
+Which is what we wanted to prove
+$\Box?$
+
+\section{Proof 8}
+Say $A [] B = \{x \mid x \in A \oplus x \in B\}$, show that $A [] B = (A - B) \cup (B - A)$\\
+$(A - B) \cup (B - A)$\\
+$(x \in A \land x \not\in B) \cup (x \in B \land  x \not\in A)$\\
+$(x \in A \land x \not\in B) \lor (x \in B \land  x \not\in A)$\\
+$(x \in A \land \neg(x \in B)) \lor (x \in B \land  \neg(x \in A))$\\
+
+\begin{displaymath}
+\begin{array}{ |c c| c|}
+x \in a &  x \in b & (x \in a) \oplus (x \in b)\\
+\hline
+0 & 0 & 0 \\
+0 & 1 & 1 \\
+1 & 0 & 1 \\
+1 & 1 & 0 \\
+\end{array}
+\end{displaymath}
+If we take the DNF of this, we can see that $(x \in a) \oplus (x \in b)$ = $(x \in A \land \neg(x \in B)) \lor (x \in B \land  \neg(x \in A))$\\
+Which is what we had, and therefore $A [] B = (A - B) \cup (B - A)$\\
+$\Box$
+
+\section{Proof 9}
+$$\forall n\geq 1, n \in N : \sum^{n}_{i=1}i(i+1) = \frac{n(n+1)(n+2)}{3}$$\\
+We will use a proof by Induction.
+Base case: n=1 gives $1(1+1)=\frac{1(1+1)(1+2)}{3}$\\
+$2=\frac{6}{3}=2$
+Therefore the base case holds.\\
+
+Induction hypothesis: $$\forall n\geq 1, n \in N : \sum^{n}_{i=1}i(i+1) = \frac{n(n+1)(n+2)}{3}$$\\
+Inductive step:
+We want to prove that $$\sum^{n+1}_{i=1}i(i+1) = \frac{(n+1)(n+2)(n+3)}{3}$$ for an arbitrary integer $n\geq 1$\\
+$$(n+1)(n+1+1) + \sum^{n}_{i=1}i(i+1) = \frac{(n+1)(n+2)(n+3)}{3}$$
+By the I.H.\\
+$$(n+1)(n+1+1) + \frac{n(n+1)(n+2)}{3} = \frac{(n+1)(n+2)(n+3)}{3}$$
+$$\frac{3*(n+1)(n+1+1)}{3} + \frac{n(n+1)(n+2)}{3} = \frac{(n+1)(n+2)(n+3)}{3}$$
+$$\frac{3*(n+1)(n+1+1)+n(n+1)(n+2)}{3} = \frac{(n+1)(n+2)(n+3)}{3}$$
+$$\frac{(n+1)(3*(n+2)+n(n+2))}{3} = \frac{(n+1)(n+2)(n+3)}{3}$$
+$$\frac{(n+1)(3n+6+n^2+2n)}{3} = \frac{(n+1)(n+2)(n+3)}{3}$$
+$$\frac{(n+1)(n^2+5n+6)}{3} = \frac{(n+1)(n+2)(n+3)}{3}$$
+$$\frac{(n+1)(n+2)(n+3)}{3} = \frac{(n+1)(n+2)(n+3)}{3}$$
+Which holds, so that concludes our proof by Induction, and we have proven that $$\forall n\geq 1, n \in N : \sum^{n}_{i=1}i(i+1) = \frac{n(n+1)(n+2)}{3}$$\\
+$\Box$
+
+
+
+\section{Proof 10}
+We recursively define S. Say $(0,0) \in S$. \\Recursion: $(m,n) \in S, \rightarrow (m+2,n+3) \in S$. \\There are no other elements in S. \\Prove that $ (m,n) \in S \rightarrow 5 \mid (m+n)$\\
+ 
+We will use Structural Induction. \\
+Base case: (0,0) is in S, $5 \mid 0$ because 5*0=0, which holds.\\
+\\
+Induction hypothesis: $(m,n) \in S \rightarrow 5 \mid (m+n)$\\
+Which can be rewritten to $(m,n) \in S \rightarrow (5*y= (m+n))$\\
+\\
+Inductive step: $(m,n) \in S( 5 \mid (m+n) \rightarrow 5 \mid (m+2+n+3))$\\
+To prove: for any (m,n) in S: $5 \mid (m+2+n+3)$\\
+$5*x = (m+2+n+3)$\\
+$5*x = (m+n+5)$\\
+By I.H.
+$5*x = 5*y+5$\\
+$5*x = 5*(y+1)$\\
+Which holds for some integers x,y. \\
+\\
+Therefore our inductive step holds, and since there are no other elements in S our proof by structural induction is complete, and we have proven that $ (m,n) \in S \rightarrow 5 \mid (m+n)$\\.
+ 
+\section{Proof 11}
+For any set A,B,C: prove that $(A \cup B) - C = (A - C) \cup (B - C)$\\
+$(x \in A \lor x \in B) - C = (A - C) \cup (B - C)$\\
+$(x \in A \lor x \in B) \land \neg (x \in C) = (A - C) \cup (B - C)$\\
+$(x \in A \land \neg (x \in C)) \lor (x \in B \land \neg (x \in C)) = (A - C) \cup (B - C)$\\
+By definition of -\\
+$(A - C)) \lor (B - C) = (A - C) \cup (B - C)$\\
+By definition of $\cup$\\
+$(A - C)) \cup (B - C) = (A - C) \cup (B - C)$\\
+Which holds, and therefore we have proven that $(A \cup B) - C = (A - C) \cup (B - C)$\\
+$\Box$
+
+
+\section{Proof 12}
+For integers x,y,z,n prove that  $x^n+y^n=z^n$ has no solutions for n greater than 2\\
+x,y,z = 0, n=3\\
+$0^3 + 0^3 = 0^3$, which holds, which disproves this statement.
+
+
+\section{Proof 13}
+Define set S like this: $1 \in S,\\ x \in S \rightarrow x+3 \in S, \\2\mid x \in S \rightarrow \frac{x}{2} \in S$\\ And nothing else.\\
+Proof $k \in S \rightarrow 3 \nmid k$ \\
+
+We will prove this using structural induction.
+Base case: $1 \in S$
+$3 \nmid 1$, which is correct because there is no integer x for which $x*3=1$.\\
+\\
+Induction Hypothesis $k \in S \rightarrow 3 \nmid k$
+Which can be rewritten to \\
+$k \in s \rightarrow 3*y \neq k$ for some integer y.\\
+$k \in s \rightarrow k = 3*y+c$ for some integer y where $c \in \{1,2\}$.\\
+\\
+Inductive step 1.
+For any x in S, take\\
+$(3 \nmid x) \rightarrow (3 \nmid x+3)$\\
+$3 \nmid x+3$\\
+$3*z \neq x+3$ for all integer z.\\
+Since x is part of S, we can use the I.H.\\
+$3*z \neq 3*y+c+3$ for some integer y where $c \in \{1,2\}$\\
+$3*z \neq 3*(y+1)+c$ for some integer y where $c \in \{1,2\}$
+Which holds, because the left side is always a multiple of 3, and the right side will never be a multiple of 3.\\
+\\
+Inductive step 2.\\
+For any x in S, take\\
+$((3 \nmid x) \land (2 \mid x))  \rightarrow (3 \nmid \frac{x}{2})$\\
+So we know that $x=2*d$ for some integer d that is part of S, and $x = 3*y+c$ for some integer y where $c \in \{1,2\}$\\
+$3 \nmid \frac{x}{2}$\\
+$3 \nmid \frac{2*d}{2}$ for some integer $d \in S$\\
+$3 \nmid d$\\
+From our I.H. because d is in S\\
+$3 \nmid 3*y+c$ for some integer y where $c \in \{1,2\}$\\
+$3*t \neq 3*y+c$ for all integers t, by definition of $\nmid$\\
+And this holds, because the left side will always be a multiple of 3, and the right side will never be a multiple of 3.\\
+\\
+Therefore, we have proven that the base case isn't divisible by 3 and all the other elements in the set added by the recursive definition aren't either. there are no other elements in the set and therefore our proof by structural induction is complete, and we have proven $k \in S \rightarrow 3 \nmid k$\\
+$\Box$
+
+
+
+\section{Proof 14}
+ $a \in S, \\x \in S \rightarrow xb \in S, \\x \in S \rightarrow abxa \in S, \\x,y \in S \rightarrow xya \in S$\\
+There are no other elements in S.\\
+Prove that the number of a is odd in every string\\
+We will prove this using structural induction
+To aid us in our proof, we will define a function f(x) which returns the number of "a"'s in x.\\
+
+Base case: $a \in S$, f(a) is 1, which is odd and therefore the base case holds.\\
+\\
+Inductive hypothesis:
+$x \in S \rightarrow 2 \nmid f(x)$\\
+$x \in S \rightarrow 2*k+1 = f(x)$ for some integer k\\
+\\
+Inductive step 1:
+$f(x) = 2*k+1 \rightarrow f(xb) = 2*m+1$ for some integer m\\
+$f(xb) = 2*m+1$\\
+$f(x)+f(b) = 2*m+1$\\
+$f(x)+0 = 2*m+1$\\
+Since x is part of S, we can use the I.H.\\
+$f(x)+0 = 2*m+1$\\
+$2*k+1+0 = 2*m+1$\\
+$2*k+1 = 2*m+1$ since k and m are both some integer, this holds.\\
+\\
+Inductive step 2:\\
+$f(x) = 2*k+1 \rightarrow f(abxa) = 2*m+1$ for some integer m\\
+$f(abxa) = 2*m+1$\\
+$f(a) + f(b) + f(x) + f(a) = 2*m+1$\\
+$1 + 0 + f(x) + 1 = 2*m+1$\\
+$2+f(x) = 2*m+1$\\
+Since x is part of S, we can use the I.H.\\
+$2+2*k+1 = 2*m+1$\\
+$2(k+1)+1 = 2*m+1$ Since k+1 and m are both some integer, this holds.\\
+\\
+Inductive step 3:\\
+$(f(x) = 2*k_1+1 \land f(y)=2k_2+1) \rightarrow f(xya) = 2*m+1$ for some integer m\\
+$f(xya) = 2*m+1$\\
+$f(x)+f(y)+f(a) = 2*m+1$\\
+$f(x)+f(y)+1 = 2*m+1$\\
+Because x and y are both in S, we can use the I.H.\\
+$2*k_1+1+2*k_2+1+1 = 2*m+1$\\
+$2*(k_1+k_2+1)+1 = 2*m+1$, and since $k_1$, $k_2$ and 1 are all integers,  $k_1+k_2+1$ is an integer, this holds.\\
+\\
+Since there are no other elements in S, we have finished everything we needed for our proof by structural induction, and we have proven that there are an odd number of "a"s in every element in S. 
+
+
+
+\section{Proof 15}
+Let A be the set of all bitstrings of form $0^n1^n$ with $n \in N$, \\
+Let B be the recursively defined set $01 \in B, \\w \in B \rightarrow 0w1 \in B$\\ There are no other elements in B.\\ prove A=B\\
+To prove this, it will suffice to say that all the elements in B are of the form $0^n1^n$ with $n \in N$. \\
+We will create a predicate ofForm(x) which takes a bitstring x, and return true if x is of the form $0^n1^n$ with $n \in N$, and false otherwise.\\
+We will use structural induction.\\
+\\
+Base case: $01 \in B$, 01 is of the form $0^n1^n$ with $n \in N$, namely with n=1. \\
+\\
+Induction hypothesis: $(w \in B)\rightarrow ofForm(w)$\\
+\\
+Inductive case:\\
+$ofForm(w) \rightarrow ofForm(0w1)$\\
+Since w is of the form, it can be expressed as $0^n1^n$ with $n \in N$\\
+Therefore, we can express 0w1 as 0$0^n1^n$1 with $n \in N$, or 
+$0^{n+1}1^{n+1}$ with $n \in N$.\\
+That is still of the form $0^n1^n$ with $n \in N$, and therefore this holds.
+
+There are no other elements in B, and therefore our proof by structural induction is done. Therefore, we have proven that all elements in B are of the form $0^n1^n$ with $n \in N$, which is also the set of A, and therefore A=B.
+$\Box$
+
+\section{Proof 16}
+for all $n \in N, 3 \mid 5^{2n}-1$\\
+We will prove this with proof by induction.\\
+Base case: n=0, $3 \mid 5^0-1 = 3 \mid 0 $ which holds.\\
+\\
+Induction Hypothesis: $3 \mid 5^{2n}-1$\\
+Which can be rewritten as $3*x = 5^{2n}-1$ for some integer x.\\
+\\
+Inductive step:\\
+$3 \mid 5^{2n}-1 \rightarrow 3 \mid 5^{2(n+1)}-1$\\
+$3 \mid 5^{2(n+1)}-1$\\
+$3*y = 5^{2(n+1)}-1$ for some integer y\\
+$3*y = 5^{2n+2}-1$\\
+$3*y = 5^{2n}*25-1$\\
+$3*y = (5^{2n}-1+1)*25-1$\\
+By the I.H.\\
+$3*y = (3*x+1)*25-1$\\
+$3*y = 3*25x+25-1$\\
+$3*y = 3*25x+24$\\
+$3*y = 3(25x+8)$ Since x is an integer, 25x+8 is an integer, and y is some integer, this holds.\\
+This concludes our proof by induction, and therefore we have proven that for all $n \in N, 3 \mid 5^{2n}-1$\\
+$\Box$
+
+\section{Proof 17}
+$A \cap B \subseteq A \subseteq A \cup B$ for any sets A,B\\
+$(x \in A \land x \in B) \subseteq (x \in A) \subseteq (x \in A \lor x \in B)$\\
+$(x \in A \land x \in B) \subseteq (x \in A)  (eq. 1)\\
+(x \in A) \subseteq (x \in A \lor x \in B) (eq. 2)$\\
+To prove the original statement, we have to prove both eq.1 and eq.2.\\
+We'll start out with eq.1\\
+This has to hold for all x:\\
+$(x \in A \land x \in B) \rightarrow (x \in A)$\\
+$\neg(x \in A \land x \in B) \lor (x \in A)$\\
+$(x \not\in A \lor x \not\in B) \lor (x \in A)$\\
+$(x \not\in A) \lor (x \in A) \lor (x \not\in B)$\\
+$\neg(x \in A) \lor (x \in A) \lor (x \not\in B)$\\
+$T \lor (x \not \in B)$ \\
+$T$ By the identity law, which is true, and therefore eq. 1 holds.
+
+Now on to eq. 2, for all x should hold:\\
+$(x \in A) \subseteq (x \in A \lor x \in B)$\\
+$(x \in A) \rightarrow (x \in A \lor x \in B)$\\
+$(x \not\in A) \lor (x \in A) \lor (x \in B)$\\
+$\neg(x \in A) \lor (x \in A) \lor (x \in B)$\\
+$T \lor (x \in B)$\\
+$T$ By identity law, therefore eq. 2 holds as well.\\
+Therefore, we have proven that $A \cap B \subseteq A \subseteq A \cup B$ for any sets A,B\\
+$\Box$
+
+
+
+
+\section{Proof 18}
+for all natural numbers $n\geq1$ $$(\sum^{n}_{i=1}i)^2 = \sum^{n}_{i=1}i^3$$ (HH 4.2b)\\
+We will do a proof by induction.\\
+Base case: n=1, $$(\sum^{1}_{i=1}i)^2 = \sum^{1}_{i=1}i^3$$
+$$(1)^2 = 1^3 \leftrightarrow 1=1$$\\
+Which holds, so our base case holds.\\
+\\
+Induction Hypothesis: $$(\sum^{n}_{i=1}i)^2 = \sum^{n}_{i=1}i^3$$\\
+Inductive step: 
+For any arbitrary integer $n \geq 1 \in N$, $$(\sum^{n+1}_{i=1}i)^2 = \sum^{n+1}_{i=1}i^3$$
+$$(\sum^{n}_{i=1}i + (n+1))^2 = \sum^{n}_{i=1}i^3 + (n+1)^3$$
+$$(\sum^{n}_{i=1}i + (n+1))^2 = (\sum^{n}_{i=1}i)^2 + (n+1)^3$$
+$$(\sum^{n}_{i=1}i + (n + 1))^2 = (\sum^{n}_{i=1}i)^2 + (n+1)^3$$
+$$(\sum^{n}_{i=1}i)^2 + 2(n + 1)(\sum^{n}_{i=1}i)+ (n + 1)^2 +  = (\sum^{n}_{i=1}i)^2 + (n+1)^3$$
+$$ 2(n + 1)(\sum^{n}_{i=1}i)+ (n + 1)^2  = (n+1)^3$$
+$$ 2(n + 1)(\frac{n(n+1)}{2})+ (n + 1)^2  = (n+1)^3$$
+$$ (n + 1)(n(n+1))+ (n + 1)^2  = (n+1)^3$$
+$$ (n+1)( n*(n+1) + (n+1) ) = (n+1)^3$$
+$$ (n+1)*(n+1)*(n+1)  = (n+1)^3$$
+Which holds. 
+Which concludes our proof by induction, and because we chose an arbitrary integer $n \geq 1 \in N$, this proves that for all natural numbers n $n\geq1$ $$(\sum^{n}_{i=1}i)^2 = \sum^{n}_{i=1}i^3$$\\
+$\Box$
+
+
+\section{Proof 19}
+x is odd iff $\mid x\mid$ is odd for any integer x.\\
+To prove: $x=2y+1 \leftrightarrow \mid x \mid = 2z+1$ for some integers y,z for all integers x\\
+\\
+We can split this up into two proofs:\\
+The case where x is 0 or positive, and the case where x is negative.\\
+In the case where x is 0 or positive, $x = \mid x \mid$, and so if we fill that in into the thing we want to prove: we get $x=2y+1 \leftrightarrow x=2z+1$, which holds for some integer y,z.\\
+\\
+Then we have the case where x is a negative number, and in that case we can fill in $\mid x \mid = -x$\\
+$x=2y+1 \leftrightarrow -x = 2z+1$\\
+We can split this up into two equations, namely:\\
+(eq.1) $x=2y+1 \rightarrow -x = 2z+1$\\
+(eq.2) $-x = 2z+1 \rightarrow x=2y+1$\\
+\\
+For equation 1, we assume $x=2y+1$
+Filling this into the second part of the equation gives\\
+$-(2y+1) = 2z+1$\\
+$-2y-1 = 2z+1$\\
+$-2y = 2z+2$\\
+$2(-y) = 2(z+1)$. Since y and z are both integers, -y and z+1 are both integers as well, and since we said that this should hold for some y,z, this holds.\\
+\\
+For equation 2, we assume $-x = 2z+1$, which is the same as saying $x = -2z-1$. Filling that into the second part gives \\
+$-2z-1 = 2y+1$\\
+$-2z = 2y+2$\\
+$2(-z) = 2(y+1)$Since y and z are both integers, -z and y+1 are both integers as well, and since we said that this should hold for some y,z, this holds.\\
+\\
+Therefore we have proven both cases for $x=2y+1 \leftrightarrow -x = 2z+1$, for both cases where $x<0$ or $x \geq 0$, so for all x, which is what we wanted to prove.\\
+$\Box$
+\section{Proof 20}
+suppose x and y have opposite parity, xy should be even, with $x,y \in Z$\\
+Since either x is even or y is even, by symmetry, it is enough to prove that it holds for x is even.\\
+therefore, we can write $x=2n$ for some integer n.\\
+therefore, $x*y = 2*n*y = 2(n*y)$, and since y is any integer and n is some integer, this is even (divisible by 2), which is what we wanted to prove.\\
+$\Box$
+
+ 
+\end {document}
